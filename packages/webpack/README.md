@@ -1,4 +1,4 @@
-# 该项目旨弄清楚webpack的build的过程
+## 该项目旨弄清楚webpack的build的过程
 
 首先我们通过一个制作一个打包文件的原型。
 假设有两个js模块，这里我们先假设这两个模块是符合commomjs标准的es5模块。
@@ -18,7 +18,7 @@ exports.default = function(a,b) {return a + b}
 
 我们需要通过模拟exports对象和require方法
 
-# 模拟exports对象
+## 模拟exports对象
 
 首先我们知道如果在nodejs打包的时候我们会使用fs.readfileSync()来读取js文件。这样的话js文件会是一个字符串。而如果需要将字符串中的代码运行会有两个方法分别是new Function与Eval。
 在这里面我们选用执行效率较高的eval。
@@ -38,7 +38,7 @@ var exports = {}
 })(exports, 'exports.default = function(a,b){return a + b}')
 ```
 
-# 模拟require函数
+## 模拟require函数
 
 require函数的功能比较简单，就是根据提供的file名称加载对应的模块。
 
@@ -106,7 +106,7 @@ console.log(add(1 , 2))
 3. 替换exports和require
 
 
-## 分析模块
+### 1. 分析模块
 
 ```typescript
 import fs from 'fs';
@@ -152,7 +152,7 @@ const getModuleInfo = (file: string): ModuleInfo =>  {
 export default getModuleInfo;
 ```
 
-## 收集依赖
+### 2. 收集依赖
 ```typescript
 import getModuleInfo from './get-module-info';
 import { ModuleInfo } from './types';
@@ -191,7 +191,7 @@ function getDeps(temp: ModuleInfo[], { deps }: { deps: ModuleInfo['deps'] }) {
 }
 ```
 
-## 生成bundle文件
+### 3. 生成bundle文件
 ```typescript
 import parseModules from './parse-modules';
 
