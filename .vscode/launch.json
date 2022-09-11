@@ -7,9 +7,9 @@
       "request": "launch",
       "runtimeArgs": [
         "--inspect-brk",
-        "${workspaceRoot}/packages/webpack/node_modules/jest/bin/jest.js",
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
         "--config",
-        "${workspaceRoot}/packages/webpack/jest.config.js",
+        "${workspaceRoot}/jest.config.js",
         "--runInBand"
       ],
       "console": "integratedTerminal",
