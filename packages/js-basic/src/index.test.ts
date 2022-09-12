@@ -1,5 +1,7 @@
 import MyPromise from './my-promise'
 
+jest.setTimeout(10000) 
+
 describe('面试中常考的手写题', () => {
   it('call', () => {
     Function.prototype.myCall = function(context, ...args) {
@@ -84,8 +86,9 @@ describe('面试中常考的手写题', () => {
     expect(myBindResult.arg2 === arg2)
   })
 
-  it('promise', (done) => {
+  it('promise resolve', (done) => {
     const resolvedValue = 'resolvedValue'
+    const chainResolvedValue = 'chainResolvedValue'
     const promise = new MyPromise((resolve, reject) => {
       global.setTimeout(() => {
         resolve(resolvedValue)
@@ -94,6 +97,43 @@ describe('面试中常考的手写题', () => {
 
     promise.then((value) => {
       expect(value).toBe(resolvedValue);
+      return chainResolvedValue;
+    })?.then((value1) => {
+      expect(value1).toBe(chainResolvedValue);
+      done()
+    })
+  })
+
+  it('promise reject', (done) => {
+    const resolvedValue = 'resolvedValue'
+    const chainResolvedValue = 'chainResolvedValue';
+    const e = new Error();
+    const promise = new MyPromise((resolve, reject) => {
+      global.setTimeout(() => {
+        reject(e)
+      }, 1000);
+    });
+
+    promise.then(() => {}, (error) => {
+      expect(error).toBe(e);
+      done();
+    })
+  })
+
+  it('promise reject from previous resolve', (done) => {
+    const resolvedValue = 'resolvedValue'
+    const e = new Error();
+    const promise = new MyPromise((resolve, reject) => {
+      global.setTimeout(() => {
+        resolve(resolvedValue)
+      }, 1000);
+    });
+
+    promise.then((value) => {
+      expect(value).toBe(resolvedValue);
+      throw e;
+    })?.then(() => {}, (error) => {
+      expect(error).toBe(e);
       done()
     })
   })

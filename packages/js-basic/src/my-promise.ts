@@ -1,6 +1,7 @@
 
 interface ResolveFn<T> {
   (value?: T): any
+  
 };
 
 interface RejectFn {
@@ -112,7 +113,9 @@ class MyPromise<T> {
         }
       });
     }
+    return promise;
   }
+
 }
 
 
