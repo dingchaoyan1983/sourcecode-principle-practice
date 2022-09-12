@@ -1,11 +1,6 @@
-# `lib-template`
+### 该项目包含基本的javascript基础部分
 
-> TODO: description
-
-## Usage
-
-```
-const intl = require('lib-template');
-
-// TODO: DEMONSTRATE API
-```
+#### [x] 手写一个 `call`
+#### [x] 手写一个 `apply`
+#### [x] 手写一个 `bind`
+#### [x] 手写一个 `promise`
