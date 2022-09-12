@@ -1,4 +1,4 @@
-import fn from './index';
+import MyPromise from './my-promise'
 
 describe('面试中常考的手写题', () => {
   it('call', () => {
@@ -79,11 +79,26 @@ describe('面试中常考的手写题', () => {
 
     const bindResult = func.myBind(obj, arg1)
     const myBindResult = bindResult(arg2);
-
     expect(myBindResult.ctx === obj.name)
     expect(myBindResult.arg1 === arg1)
     expect(myBindResult.arg2 === arg2)
   })
+
+  it('promise', (done) => {
+    const resolvedValue = 'resolvedValue'
+    const promise = new MyPromise((resolve, reject) => {
+      global.setTimeout(() => {
+        resolve(resolvedValue)
+      }, 1000);
+    });
+
+    promise.then((value) => {
+      expect(value).toBe(resolvedValue);
+      done()
+    })
+  })
 });
+
+export default {}
 
 
