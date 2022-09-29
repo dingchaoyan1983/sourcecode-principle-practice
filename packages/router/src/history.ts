@@ -1,4 +1,4 @@
-import { BaseRouter } from './base.js';
+import { BaseRouter } from './base';
 import type { RouteList } from './types'; 
 
 export class HistoryRouter extends BaseRouter {

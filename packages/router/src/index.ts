@@ -4,9 +4,9 @@ import { ROUTELIST } from './routeList';
 import type { RouteList, RouteType } from './types';
 
 //路由模式
-const MODE = 'hash';
+const MODE = 'history';
 
-class WebRouter {
+export class WebRouter {
   private router: RouteType;
   constructor({ mode = 'hash', routeList }: { mode: string, routeList: RouteList }) {
     this.router = mode === 'hash' ? new HashRouter(routeList) : new HistoryRouter(routeList);
@@ -48,3 +48,6 @@ if (replaceBtn) {
     webRouter.replace('/');
   });
 }
+
+export default () => {};
+

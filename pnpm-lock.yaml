@@ -63,6 +63,7 @@ importers:
       lodash: ^4.17.21
       react: ^18.0.0
       ts-jest: ^29.0.0
+      ts-loader: ~8.2.0
       typescript: ^4.8.3
       webpack: ^4.28.1
       webpack-cli: ^3.2.1
@@ -81,6 +82,7 @@ importers:
       lodash: 4.17.21
       react: 18.2.0
       ts-jest: 29.0.0_jksntdpmkmo5cthob65gehuuvi
+      ts-loader: 8.2.0_omrux4vvqa62tf6r3deo7igg6u
       typescript: 4.8.3
       webpack: 4.46.0_webpack-cli@3.3.12
       webpack-cli: 3.3.12_webpack@4.46.0
@@ -11248,6 +11250,22 @@ packages:
       semver: 7.3.7
       typescript: 4.8.3
       yargs-parser: 21.1.1
+    dev: true
+
+  /ts-loader/8.2.0_omrux4vvqa62tf6r3deo7igg6u:
+    resolution: {integrity: sha512-ebXBFrNyMSmbWgjnb3WBloUBK+VSx1xckaXsMXxlZRDqce/OPdYBVN5efB0W3V0defq0Gcy4YuzvPGqRgjj85A==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      typescript: '*'
+      webpack: '*'
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 4.5.0
+      loader-utils: 2.0.2
+      micromatch: 4.0.5
+      semver: 7.3.7
+      typescript: 4.8.3
+      webpack: 4.46.0_webpack-cli@3.3.12
     dev: true
 
   /ts-loader/8.4.0_omrux4vvqa62tf6r3deo7igg6u:
